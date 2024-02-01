@@ -16,6 +16,7 @@ Player::Player(Quad pos, Vector2 speed) {
 	player_.isDamaged = false;
 	player_.damagedTimer = 0;
 	player_.HP = 3;
+	player_.color = WHITE;
 
 }
 
@@ -28,6 +29,8 @@ void Player::Initialize(Quad pos, Vector2 speed) {
 	player_.isDamaged = false;
 	player_.damagedTimer = 0;
 	player_.HP = 3;
+	player_.color = WHITE;
+
 	InitializeBullet();
 
 }
@@ -88,6 +91,9 @@ void Player::PlayerDamaged() {
 
 	if (player_.isDamaged) {
 		player_.damagedTimer++;
+		player_.color = RED;
+	} else {
+		player_.color = WHITE;
 	}
 
 	if (player_.damagedTimer == 1) {
@@ -142,6 +148,6 @@ void Player::DrawHeart() {
 
 void Player::Draw() {
 	DrawBullet();
-	Novice::DrawSprite((int)player_.pos.UL.x, (int)player_.pos.UL.y, player_.handle, 1, 1, 0.0f, WHITE);
+	Novice::DrawSprite((int)player_.pos.UL.x, (int)player_.pos.UL.y, player_.handle, 1, 1, 0.0f, player_.color);
 
 }

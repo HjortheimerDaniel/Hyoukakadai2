@@ -33,6 +33,7 @@ struct PlayerStruct {
 	bool isDead, isDamaged;
 	int HP;
 	int heartHandle[3];
+	int color;
 };
 
 struct BulletStruct {
